@@ -2,6 +2,7 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { generateCostSummaryPDF } from "../lib/pdfGenerator";
 import type { CostCalculationResult } from "../lib/types";
 
 const addonLabels: Record<string, string> = {
@@ -126,12 +127,9 @@ export function ResultCard({ result }: ResultCardProps) {
         <Button
           className="w-full"
           variant="outline"
-          onClick={() => {
-            // Placeholder for PDF generation
-            alert("PDF generation feature coming soon!");
-          }}
+          onClick={() => generateCostSummaryPDF(result)}
         >
-          Generate PDF Estimate
+          Generate PDF Cost Summary
         </Button>
       </CardContent>
     </Card>
